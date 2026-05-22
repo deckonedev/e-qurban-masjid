@@ -1,0 +1,100 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Budi Santoso",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 2,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Siti Aminah",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 3,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Ahmad Dahlan",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 4,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Rina Wati",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 5,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Joko Supriyanto",
+      "status": "Sudah Diambil"
+    },
+    {
+      "id": 6,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Sri Mulyani",
+      "status": "Sudah Diambil"
+    },
+    {
+      "id": 7,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Wahyu Pratama",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 8,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Dewi Sartika",
+      "status": "Sudah Diambil"
+    },
+    {
+      "id": 9,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Agus Setiawan",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 10,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Dwi Lestari",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 11,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Hendra Gunawan",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 12,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "10:00 - 12:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "Fitriani",
+      "status": "Belum Diambil"
+    }
+  ]
+}
