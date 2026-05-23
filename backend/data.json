@@ -5,7 +5,7 @@
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Budi Santoso",
+      "penerima": "MUHIDIN 1",
       "status": "Belum Diambil"
     },
     {
@@ -13,7 +13,7 @@
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Siti Aminah",
+      "penerima": "MUHIDIN 2",
       "status": "Belum Diambil"
     },
     {
@@ -21,7 +21,7 @@
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Ahmad Dahlan",
+      "penerima": "NOVA KOMARIAH 1",
       "status": "Belum Diambil"
     },
     {
@@ -29,7 +29,7 @@
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Rina Wati",
+      "penerima": "NOVA KOMARIAH 2",
       "status": "Belum Diambil"
     },
     {
@@ -37,63 +37,599 @@
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Joko Supriyanto",
-      "status": "Sudah Diambil"
+      "penerima": "NOVITA SARI 1",
+      "status": "Belum Diambil"
     },
     {
       "id": 6,
       "hari_tgl": "Rabu, 27-5-2026",
       "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Sri Mulyani",
-      "status": "Sudah Diambil"
+      "penerima": "NOVITA SARI 2",
+      "status": "Belum Diambil"
     },
     {
       "id": 7,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Wahyu Pratama",
+      "penerima": "SUHARDI 1",
       "status": "Belum Diambil"
     },
     {
       "id": 8,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Dewi Sartika",
-      "status": "Sudah Diambil"
+      "penerima": "SUHARDI 2",
+      "status": "Belum Diambil"
     },
     {
       "id": 9,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Agus Setiawan",
+      "penerima": "NAKHRINI 1",
       "status": "Belum Diambil"
     },
     {
       "id": 10,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Dwi Lestari",
+      "penerima": "NAKHRINI 2",
       "status": "Belum Diambil"
     },
     {
       "id": 11,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Hendra Gunawan",
+      "penerima": "H. MUJADI1",
       "status": "Belum Diambil"
     },
     {
       "id": 12,
       "hari_tgl": "Rabu, 27-5-2026",
-      "pukul": "10:00 - 12:00",
+      "pukul": "08:00 - 10:00",
       "tempat": "Masjid Mu'alimmin",
-      "penerima": "Fitriani",
+      "penerima": "H. MUJADI 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 13,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "BAMBANG SUMBODO (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 14,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "BAMBANG SUMBODO (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 15,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. AMIR UDIN 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 16,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. AMIR UDIN 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 17,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUTINAH 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 18,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUTINAH 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 19,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. CAHYANI (ALM}1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 20,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. CAHYANI (ALM} 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 21,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. MARSIPIT (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 22,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. MARSIPIT (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 23,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HJ. SULASTRI (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 24,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HJ. SULASTRI (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 25,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "NGALIMIN (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 26,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "NGALIMIN (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 27,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "ANSORI (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 28,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "ANSORI (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 29,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "ACEP SUHARDI (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 30,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "ACEP SUHARDI (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 31,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "KAMDIONO 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 32,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "KAMDIONO 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 33,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SYAHRI (ALM) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 34,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SYAHRI (ALM) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 35,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HENDRA (AHOK) 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 36,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HENDRA (AHOK) 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 37,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "KANTI HASTUTI 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 38,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "KANTI HASTUTI 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 39,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUROSO 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 40,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUROSO 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 41,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MUJIO 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 42,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MUJIO 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 43,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "PARTINI/WAHONO 1",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 44,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "PARTINI/WAHONO 2",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 45,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SRI SUNDARI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 46,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "DEDI IRAWAN",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 47,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MEFRI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 48,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MARSUDI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 49,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MUJIAH",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 50,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUKARJO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 51,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "AMEK",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 52,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "PATO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 53,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "DARTO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 54,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SUKIS",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 55,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H. SLAMET",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 56,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "ASAK",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 57,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "RONI/YULI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 58,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SANGKONO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 59,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "JIMIN",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 60,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "PARIYEM",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 61,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MEMET",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 62,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "MURGIYANTI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 63,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SARIF HIDAYATULLOH",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 64,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "RECXY  YUDA U.",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 65,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "PAIRIN",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 66,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "WARTINAH",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 67,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "RESO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 68,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "JONI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 69,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "CIK IYAH",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 70,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "TOMO/EVA",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 71,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "TONI/DAPI",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 72,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "WISIT",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 73,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HAZMI A.A.",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 74,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SARIMIN",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 75,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "SARONO",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 76,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "YULIUS",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 77,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "TRI IKHSAN JAYA",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 78,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "HJ. WIN",
+      "status": "Belum Diambil"
+    },
+    {
+      "id": 79,
+      "hari_tgl": "Rabu, 27-5-2026",
+      "pukul": "08:00 - 10:00",
+      "tempat": "Masjid Mu'alimmin",
+      "penerima": "H.SALIM",
       "status": "Belum Diambil"
     }
   ]

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
 
 const API_URL = 'http://localhost:5000/api';
@@ -69,14 +70,12 @@ function App() {
 
   const fetchTickets = async () => {
     try {
-      const url = new URL(`${API_URL}/tickets`);
-      if (filter !== 'Semua') url.searchParams.append('status', filter);
-      if (search) url.searchParams.append('search', search);
-      const res = await fetch(url);
+      const res = await fetch(`${API_URL}/tickets`);
       const data = await res.json();
       setTickets(data);
     } catch (error) {
       console.error('Error fetching tickets:', error);
+      toast.error('Gagal memuat data tiket');
     }
   };
 
@@ -87,12 +86,13 @@ function App() {
       setSettings(prev => ({ ...prev, ...data }));
     } catch (error) {
       console.error('Error fetching settings:', error);
+      toast.error('Gagal memuat pengaturan');
     }
   };
 
   useEffect(() => {
     fetchTickets();
-  }, [filter, search]);
+  }, [activeTab]);
 
   useEffect(() => {
     fetchSettings();
@@ -105,9 +105,10 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newSettings || settings)
       });
-      alert('Pengaturan berhasil disimpan!');
+      toast.success('Pengaturan berhasil disimpan!');
     } catch (error) {
       console.error('Error saving settings:', error);
+      toast.error('Gagal menyimpan pengaturan!');
     }
   };
 
@@ -121,8 +122,10 @@ function App() {
         body: JSON.stringify({ ...ticket, status: newStatus })
       });
       fetchTickets();
+      toast.success(`Status tiket diubah menjadi ${newStatus}`);
     } catch (error) {
       console.error('Error updating ticket:', error);
+      toast.error('Gagal mengubah status tiket!');
     }
   };
 
@@ -137,15 +140,20 @@ function App() {
       setShowAddModal(false);
       setFormData({ hari_tgl: '', pukul: '', tempat: settings.masjid_name, penerima: '' });
       fetchTickets();
+      toast.success('Tiket berhasil ditambahkan!');
     } catch (error) {
       console.error('Error adding ticket:', error);
+      toast.error('Gagal menambahkan tiket!');
     }
   };
 
   const handlePrint = (type) => {
     setShowPrintMenu(false);
     if (type === 'pdf') {
-      alert("Pilih 'Save as PDF' (Simpan sebagai PDF) pada pilihan Destination/Printer di jendela berikutnya.");
+      toast("Pilih 'Save as PDF' pada pilihan Destination/Printer", {
+        icon: 'ℹ️',
+        duration: 5000,
+      });
     }
     setTimeout(() => window.print(), 300);
   };
@@ -165,8 +173,22 @@ function App() {
   const statDiambil = tickets.filter(t => t.status === 'Sudah Diambil').length;
   const statBelum = tickets.filter(t => t.status === 'Belum Diambil').length;
 
+  const filteredTickets = tickets.filter(t => {
+    if (filter !== 'Semua' && t.status !== filter) return false;
+    if (search) {
+      const s = search.toLowerCase();
+      return (
+        (t.penerima && t.penerima.toLowerCase().includes(s)) ||
+        (t.hari_tgl && t.hari_tgl.toLowerCase().includes(s)) ||
+        (t.tempat && t.tempat.toLowerCase().includes(s))
+      );
+    }
+    return true;
+  });
+
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="app-container">
         {/* Top Header Sticky */}
         <div className="top-header">
@@ -287,7 +309,7 @@ function App() {
           {activeTab === 'tiket' && (
             <>
               <div className="ticket-list">
-                {tickets.map(ticket => (
+                {filteredTickets.map(ticket => (
                   <div 
                     key={ticket.id} 
                     className={`ticket-card ${ticket.status === 'Sudah Diambil' ? 'taken' : ''}`}
@@ -322,7 +344,7 @@ function App() {
                     </button>
                   </div>
                 ))}
-                {tickets.length === 0 && (
+                {filteredTickets.length === 0 && (
                   <div style={{ textAlign: 'center', color: 'var(--text-secondary)', marginTop: '20px' }}>
                     Tidak ada tiket ditemukan.
                   </div>
