@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle } from 'lucide-react';
+import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle, FileSpreadsheet } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
 
@@ -46,6 +46,7 @@ function App() {
   const [search, setSearch] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
   const [showPrintMenu, setShowPrintMenu] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
   
   const [settings, setSettings] = useState({
     ketua_name: '',
@@ -96,6 +97,11 @@ function App() {
 
   useEffect(() => {
     fetchSettings();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const saveSettings = async (newSettings) => {
@@ -149,6 +155,29 @@ function App() {
 
   const handlePrint = (type) => {
     setShowPrintMenu(false);
+    
+    if (type === 'xls') {
+      let table = '<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Data Qurban</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table border="1">';
+      table += '<thead><tr><th style="background-color:#0d9453;color:white;text-align:center">No</th><th style="background-color:#0d9453;color:white">Nama Penerima</th><th style="background-color:#0d9453;color:white">Status Pengambilan</th><th style="background-color:#0d9453;color:white">Waktu Pengambilan</th></tr></thead><tbody>';
+      
+      filteredTickets.forEach((t, i) => {
+        table += `<tr><td style="text-align:center">${i+1}</td><td>${t.penerima}</td><td>${t.status}</td><td>${t.hari_tgl}, ${t.pukul || '-'}</td></tr>`;
+      });
+      table += '</tbody></table></body></html>';
+      
+      const blob = new Blob([table], { type: 'application/vnd.ms-excel' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Data_Qurban_${new Date().toISOString().split('T')[0]}.xls`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast.success('Berhasil mengekspor ke Excel!');
+      return;
+    }
+
     if (type === 'pdf') {
       toast("Pilih 'Save as PDF' pada pilihan Destination/Printer", {
         icon: 'ℹ️',
@@ -210,17 +239,26 @@ function App() {
                     <div onClick={() => handlePrint('kertas')} style={{ padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', borderBottom: '1px solid var(--border-color)' }}>
                       <Printer size={16} /> Kertas
                     </div>
-                    <div onClick={() => handlePrint('pdf')} style={{ padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                      <FileText size={16} /> .pdf
+                    <div onClick={() => handlePrint('pdf')} style={{ padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', borderBottom: '1px solid var(--border-color)' }}>
+                      <FileText size={16} /> .pdf (Kupon)
+                    </div>
+                    <div onClick={() => handlePrint('xls')} style={{ padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                      <FileSpreadsheet size={16} /> .xls (Data)
                     </div>
                   </div>
                 )}
               </div>
             )}
           </header>
-          <p className="subtitle" style={{ margin: 0 }}>
-            {activeTab === 'dashboard' ? 'Ringkasan Informasi' : activeTab === 'tiket' ? 'Kelola tiket qurban' : activeTab === 'panitia' ? 'Data Panitia & TTD' : 'Pengaturan Kupon'}
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <p className="subtitle" style={{ margin: 0 }}>
+              {activeTab === 'dashboard' ? 'Ringkasan Informasi' : activeTab === 'tiket' ? 'Kelola tiket qurban' : activeTab === 'panitia' ? 'Data Panitia & TTD' : 'Pengaturan Kupon'}
+            </p>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.9)', fontWeight: 500, display: 'flex', gap: '4px', alignItems: 'center' }}>
+              <Clock size={12} />
+              <span>{currentTime.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' })}, {currentTime.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }).replace(/\./g, ':')}</span>
+            </div>
+          </div>
         </div>
 
         {/* Sticky Controls for Tiket Tab */}

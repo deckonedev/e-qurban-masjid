@@ -8,6 +8,8 @@ Aplikasi ini mengusung desain *clean*, responsif, dan *mobile-friendly*, dengan 
 
 ## 🆕 Pembaruan Terbaru (Update)
 
+- **Ekspor Data ke Excel (.xls)**: Menambahkan opsi baru pada menu Cetak untuk mengekspor data penerima (Nomor, Nama, Status, Waktu) langsung ke dalam format tabel Excel. Hasil ekspor secara cerdas menyesuaikan dengan pencarian dan filter yang sedang aktif.
+- **Jam Digital Minimalis**: Menambahkan fitur jam dan tanggal digital *real-time* yang terintegrasi manis dan rapi di bagian *Header* utama.
 - **Input Data Masal**: Telah dimasukkan 79 data penerima kupon qurban baru yang menggantikan data lama.
 - **Notifikasi Pintar (Toast)**: Menggantikan *alert* bawaan browser yang kaku dengan notifikasi modern dan interaktif menggunakan `react-hot-toast` untuk setiap aksi berhasil/gagal (simpan pengaturan, tambah tiket, ubah status).
 - **Perbaikan Sinkronisasi Dashboard**: Memperbaiki bug di mana tab Dashboard salah menghitung statistik ketika tab Tiket sedang difilter. Pengambilan data sekarang selalu ditarik ulang secara penuh setiap berganti tab, dan proses filter/pencarian sepenuhnya dipindahkan ke memori *frontend* (Browser) sehingga perhitungan jauh lebih presisi dan cepat.
