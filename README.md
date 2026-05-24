@@ -14,6 +14,7 @@ Aplikasi ini mengusung desain *clean*, responsif, dan *mobile-friendly*, dengan 
   - Mengganti ikon bawaan dengan logo/watermark kustom (`kambing.png`) di latar belakang (kanan) ber-opacity rendah yang memberikan kesan eksklusif dan estetik.
   - Penempatan area tanda tangan panitia ditarik sedikit ke atas, dan teks catatan tambahan dikunci secara statis pada bagian paling bawah halaman cetak kupon.
 - **Auto-Shrink Cerdas pada Cetakan**: Memperbaiki dan memastikan bahwa teks `Nama`, `Waktu`, dan `Lokasi` yang kebetulan berukuran sangat panjang akan otomatis mengecil (auto-shrink) sehingga pas di dalam kupon tanpa terpotong sama sekali saat diprint.
+- **Manajemen Tiket Penuh (Edit & Hapus)**: Kini daftar tiket tidak hanya bisa diubah statusnya, tetapi juga dilengkapi tombol aksi mini yang elegan untuk mengedit (📝) dan menghapus (🗑️) data tiket dengan konfirmasi keamanan.
 - **Ekspor Data ke Excel (.xls)**: Menambahkan opsi baru pada menu Cetak untuk mengekspor data penerima (Nomor, Nama, Status, Waktu) langsung ke dalam format tabel Excel. Hasil ekspor secara cerdas menyesuaikan dengan pencarian dan filter yang sedang aktif.
 - **Jam Digital Minimalis**: Menambahkan fitur jam dan tanggal digital *real-time* yang terintegrasi manis dan rapi di bagian *Header* utama.
 - **Notifikasi Pintar (Toast)**: Menggantikan *alert* bawaan browser yang kaku dengan notifikasi modern dan interaktif menggunakan `react-hot-toast` untuk setiap aksi berhasil/gagal (simpan pengaturan, tambah tiket, ubah status).

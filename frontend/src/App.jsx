@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle, FileSpreadsheet } from 'lucide-react';
+import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle, FileSpreadsheet, Edit, Trash2 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
 import kambingLogo from './assets/kambing.png';
@@ -58,6 +58,7 @@ function App() {
   const [filter, setFilter] = useState('Semua');
   const [search, setSearch] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
+  const [editingId, setEditingId] = useState(null);
   const [showPrintMenu, setShowPrintMenu] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   
@@ -148,21 +149,56 @@ function App() {
     }
   };
 
-  const handleAddTicket = async (e) => {
+  const handleSaveTicket = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`${API_URL}/tickets`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, status: 'Belum Diambil' })
-      });
+      if (editingId) {
+        await fetch(`${API_URL}/tickets/${editingId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        toast.success('Tiket berhasil diperbarui!');
+      } else {
+        await fetch(`${API_URL}/tickets`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, status: 'Belum Diambil' })
+        });
+        toast.success('Tiket berhasil ditambahkan!');
+      }
       setShowAddModal(false);
+      setEditingId(null);
       setFormData({ hari_tgl: '', pukul: '', tempat: settings.masjid_name, penerima: '' });
       fetchTickets();
-      toast.success('Tiket berhasil ditambahkan!');
     } catch (error) {
-      console.error('Error adding ticket:', error);
-      toast.error('Gagal menambahkan tiket!');
+      console.error('Error saving ticket:', error);
+      toast.error('Gagal menyimpan tiket!');
+    }
+  };
+
+  const openEditModal = (ticket, e) => {
+    e.stopPropagation();
+    setFormData({
+      hari_tgl: ticket.hari_tgl,
+      pukul: ticket.pukul,
+      tempat: ticket.tempat,
+      penerima: ticket.penerima
+    });
+    setEditingId(ticket.id);
+    setShowAddModal(true);
+  };
+
+  const handleDeleteTicket = async (id, e) => {
+    e.stopPropagation();
+    if (!window.confirm('Yakin ingin menghapus tiket ini?')) return;
+    try {
+      await fetch(`${API_URL}/tickets/${id}`, { method: 'DELETE' });
+      fetchTickets();
+      toast.success('Tiket berhasil dihapus!');
+    } catch (error) {
+      console.error('Error deleting ticket:', error);
+      toast.error('Gagal menghapus tiket!');
     }
   };
 
@@ -378,21 +414,27 @@ function App() {
                         {ticket.status}
                       </p>
                     </div>
-                    <button 
-                      className="action-btn" 
-                      title={ticket.status === 'Sudah Diambil' ? 'Batal Menerima' : 'Tandai Diambil'}
-                      style={
-                        ticket.status === 'Belum Diambil' 
-                          ? { backgroundColor: '#fee2e2', border: '1px solid #fca5a5', color: '#ef4444', boxShadow: 'none' } 
-                          : { backgroundColor: '#dcfce7', border: '1px solid #86efac', color: '#22c55e', boxShadow: 'none' }
-                      }
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleToggleTicketStatus(ticket.id);
-                      }}
-                    >
-                      {ticket.status === 'Belum Diambil' ? <XCircle size={20} /> : <CheckCircle size={20} />}
-                    </button>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
+                      <button 
+                        className="action-btn" 
+                        title={ticket.status === 'Sudah Diambil' ? 'Batal Menerima' : 'Tandai Diambil'}
+                        style={
+                          ticket.status === 'Belum Diambil' 
+                            ? { backgroundColor: '#fee2e2', border: '1px solid #fca5a5', color: '#ef4444', boxShadow: 'none' } 
+                            : { backgroundColor: '#dcfce7', border: '1px solid #86efac', color: '#22c55e', boxShadow: 'none' }
+                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleToggleTicketStatus(ticket.id);
+                        }}
+                      >
+                        {ticket.status === 'Belum Diambil' ? <XCircle size={20} /> : <CheckCircle size={20} />}
+                      </button>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <button className="mini-btn edit" onClick={(e) => openEditModal(ticket, e)} title="Edit"><Edit size={14} /></button>
+                        <button className="mini-btn delete" onClick={(e) => handleDeleteTicket(ticket.id, e)} title="Hapus"><Trash2 size={14} /></button>
+                      </div>
+                    </div>
                   </div>
                 ))}
                 {filteredTickets.length === 0 && (
@@ -548,7 +590,7 @@ function App() {
           </div>
 
           <div className="center-btn-wrapper">
-            <div className="center-btn" onClick={() => setShowAddModal(true)} title="Tambah Tiket">
+            <div className="center-btn" onClick={() => { setEditingId(null); setFormData({ hari_tgl: '', pukul: '', tempat: settings.masjid_name, penerima: '' }); setShowAddModal(true); }} title="Tambah Tiket">
               <Plus size={32} strokeWidth={2.5} />
             </div>
           </div>
@@ -561,12 +603,12 @@ function App() {
           </div>
         </div>
 
-        {/* Add Modal */}
+        {/* Add/Edit Modal */}
         {showAddModal && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <h2 className="modal-title">Tambah Tiket Qurban</h2>
-              <form onSubmit={handleAddTicket}>
+              <h2 className="modal-title">{editingId ? 'Edit Tiket Qurban' : 'Tambah Tiket Qurban'}</h2>
+              <form onSubmit={handleSaveTicket}>
                 <div className="form-group">
                   <label className="form-label">Nama Penerima</label>
                   <input 

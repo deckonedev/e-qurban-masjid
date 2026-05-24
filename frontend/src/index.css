@@ -295,6 +295,28 @@ body {
   transform: none;
 }
 
+.mini-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mini-btn.edit {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+.mini-btn.edit:hover { background: #bae6fd; transform: scale(1.05); }
+.mini-btn.delete {
+  background: #fee2e2;
+  color: #ef4444;
+}
+.mini-btn.delete:hover { background: #fecaca; transform: scale(1.05); }
+
 /* Bottom Nav */
 .bottom-nav {
   position: absolute;
