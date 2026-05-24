@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, Scan, Plus, Check, Ticket, LayoutDashboard, Settings as SettingsIcon, User, Printer, FileText, MapPin, Clock, Building, Users, CheckCircle, XCircle, FileSpreadsheet } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
+import kambingLogo from './assets/kambing.png';
 
 const API_URL = 'http://localhost:5000/api';
 
@@ -16,22 +17,34 @@ const AutoShrinkText = ({ text, className, align = 'center' }) => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    const container = containerRef.current;
-    const textEl = textRef.current;
-    if (!container || !textEl) return;
-    
-    textEl.style.fontSize = '100%';
-    let fontSize = 100;
-    
-    // Auto shrink loop
-    while (textEl.scrollWidth > container.clientWidth && fontSize > 50) {
-      fontSize -= 2;
-      textEl.style.fontSize = `${fontSize}%`;
-    }
+    const adjustSize = () => {
+      const container = containerRef.current;
+      const textEl = textRef.current;
+      if (!container || !textEl) return;
+      
+      textEl.style.fontSize = '100%';
+      let fontSize = 100;
+      
+      // Auto shrink loop
+      while (textEl.scrollWidth > container.clientWidth && fontSize > 40) {
+        fontSize -= 2;
+        textEl.style.fontSize = `${fontSize}%`;
+      }
+    };
+
+    adjustSize();
+    const timeout = setTimeout(adjustSize, 100);
+    const timeout2 = setTimeout(adjustSize, 500);
+    window.addEventListener('resize', adjustSize);
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(timeout2);
+      window.removeEventListener('resize', adjustSize);
+    };
   }, [text]);
 
   return (
-    <div ref={containerRef} style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: align }}>
+    <div ref={containerRef} style={{ width: '100%', flex: 1, minWidth: 0, overflow: 'hidden', display: 'flex', justifyContent: align }}>
       <span ref={textRef} className={className} style={{ whiteSpace: 'nowrap' }}>
         {text}
       </span>
@@ -59,7 +72,7 @@ function App() {
     ticket_footer: '*Harap dibawa saat pengambilan',
     masjid_name: "Masjid Mu'alimmin",
     lokasi: "Halaman Masjid Mu'alimmin",
-    waktu_pengambilan: "Rabu, 27-5-2026 (08:00 - 10:00)"
+    waktu_pengambilan: "Rabu, 27-Mei-2026 (12:00 - 14:00)"
   });
 
   const [formData, setFormData] = useState({
@@ -592,8 +605,10 @@ function App() {
                         if (dateStr) {
                           const date = new Date(dateStr);
                           const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                          const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
                           const dayName = days[date.getDay()];
-                          setFormData({...formData, hari_tgl: `${dayName}, ${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`});
+                          const monthName = months[date.getMonth()];
+                          setFormData({...formData, hari_tgl: `${dayName}, ${date.getDate()}-${monthName}-${date.getFullYear()}`});
                         }
                       }} 
                     />
@@ -604,7 +619,7 @@ function App() {
                     required
                     value={formData.hari_tgl}
                     onChange={e => setFormData({...formData, hari_tgl: e.target.value})}
-                    placeholder="Misal: Rabu, 27-5-2026"
+                    placeholder="Misal: Rabu, 27-Mei-2026"
                   />
                 </div>
                 <div className="form-group">
@@ -652,11 +667,24 @@ function App() {
       <div className="print-area">
         {tickets.map(ticket => (
           <div className="coupon" key={`print-${ticket.id}`}>
+            {/* Left Stub for Number */}
+            <div className="coupon-left-stub">
+               <div className="stub-content">
+                 <span className="stub-number">{String(ticket.id).padStart(3, '0')}</span>
+               </div>
+            </div>
+            
+            <div className="coupon-divider"></div>
+
             <div className="coupon-main">
+              {/* Goat Ornament Background */}
+              <div className="ornament-bg">
+                <img src={kambingLogo} alt="Logo Qurban" style={{ width: '120px', height: '120px', opacity: 0.15, objectFit: 'contain' }} />
+              </div>
+
               {/* Header */}
               <div className="coupon-header">
                 <h2>{settings.ticket_title}</h2>
-                <div className="header-divider"></div>
                 <div className="masjid-name">{settings.masjid_name}</div>
               </div>
               
@@ -671,28 +699,22 @@ function App() {
                 </div>
                 <div className="coupon-row">
                   <span className="coupon-label">Waktu</span>
-                  <span className="coupon-value">: {ticket.hari_tgl}, {ticket.pukul || '-'}</span>
+                  <div className="coupon-value" style={{ display: 'flex', overflow: 'hidden' }}>
+                    <span style={{ marginRight: '4px' }}>:</span>
+                    <AutoShrinkText align="flex-start" text={`${ticket.hari_tgl}, ${ticket.pukul || '-'}`} />
+                  </div>
                 </div>
                 <div className="coupon-row">
-                  <span className="coupon-label">Nomor</span>
-                  <span className="coupon-value">: {String(ticket.id).padStart(3, '0')}</span>
+                  <span className="coupon-label">Lokasi</span>
+                  <span className="coupon-value" style={{ display: 'flex', overflow: 'hidden' }}>
+                    <span style={{ marginRight: '4px' }}>:</span>
+                    <AutoShrinkText align="flex-start" text={settings.lokasi || '-'} />
+                  </span>
                 </div>
               </div>
 
-              {/* Note below white box */}
-              <div className="coupon-note">
-                {settings.ticket_footer}
-              </div>
-
-              {/* Footer layout: Location left, Panitia right */}
+              {/* Footer layout: Panitia signatures */}
               <div className="coupon-footer-bar">
-                <div className="location-strip">
-                  <div className="loc-title">
-                    <MapPin size={12} style={{ marginRight: '4px' }} />
-                    Lokasi:
-                  </div>
-                  <span>{settings.lokasi}</span>
-                </div>
                 <div className="panitia-strip">
                   <div className="panitia-signatures">
                     <div className="coupon-ttd">
@@ -712,6 +734,11 @@ function App() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Note at the very bottom */}
+              <div className="coupon-note-bottom">
+                {settings.ticket_footer}
               </div>
             </div>
           </div>

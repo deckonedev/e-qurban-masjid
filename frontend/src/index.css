@@ -456,9 +456,17 @@ body {
   color: white;
 }
 
-/* Print Container (Hidden on Screen) */
+/* Print Container (Hidden on Screen but measurable for AutoShrinkText) */
 .print-area {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: -10000px;
+  width: 190mm; /* A4 width (210mm) - 2x10mm margins */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8mm 6mm;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Print Styles */
@@ -497,114 +505,157 @@ body {
 
   /* Show and style print area */
   .print-area {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8mm 6mm;
-    width: 100%;
-    align-content: flex-start;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 1 !important;
+    width: 100% !important;
   }
 
   /* Ticket Coupon Style */
   .coupon {
     width: calc(50% - 3mm); /* 2 columns minus half gap */
     height: 85mm;
-    border: 2px dashed #059669;
+    border: 3px solid #005A9C;
     border-radius: 12px;
-    padding: 16px;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     page-break-inside: avoid;
     break-inside: avoid;
     position: relative;
-    background-color: white !important;
+    background-color: #FDF9F1 !important;
     overflow: hidden;
+  }
+
+  /* Stub */
+  .coupon-left-stub {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .stub-content {
+    transform: rotate(-90deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .stub-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #475569 !important;
+  }
+
+  .stub-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #005A9C !important;
+    margin-top: -2px;
+  }
+
+  .coupon-divider {
+    width: 0;
+    border-left: 3px dashed #005A9C;
+    height: 100%;
   }
 
   /* Main Coupon Content */
   .coupon-main {
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     z-index: 1;
     height: 100%;
+    padding: 12px;
+    position: relative;
+  }
+
+  .ornament-bg {
+    position: absolute;
+    right: 5px;
+    top: 30%;
+    transform: translateY(-50%);
+    opacity: 1;
+    z-index: 0;
   }
 
   .coupon-header {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
+    z-index: 2;
   }
 
   .coupon-header h2 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     margin: 0;
-    text-transform: uppercase;
-    color: #059669 !important;
-    letter-spacing: 0.5px;
-  }
-
-  .header-divider {
-    height: 2px;
-    background-color: #059669 !important;
-    margin: 8px -16px;
-    width: calc(100% + 32px);
+    color: #005A9C !important;
+    line-height: 1.1;
+    font-family: serif;
   }
 
   .masjid-name {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
-    color: #059669 !important;
-    -webkit-text-fill-color: #059669 !important;
-    text-transform: uppercase;
+    color: #005A9C !important;
+    -webkit-text-fill-color: #005A9C !important;
   }
 
   /* Details box */
   .coupon-white-box {
     background: transparent !important;
     border: none !important;
-    padding: 8px 16px;
-    margin-bottom: 12px;
+    padding: 0;
+    margin-bottom: 8px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     box-shadow: none !important;
+    z-index: 2;
   }
 
   .coupon-row {
     display: flex;
-    font-size: 14px;
+    font-size: 13px;
     align-items: flex-start;
   }
 
   .coupon-label {
-    width: 65px;
+    width: 50px;
     font-weight: 800;
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important;
+    color: #005A9C !important;
+    -webkit-text-fill-color: #005A9C !important;
     flex-shrink: 0;
   }
 
   .coupon-value {
     flex: 1;
+    min-width: 0;
     font-weight: 700;
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important;
+    color: #005A9C !important;
+    -webkit-text-fill-color: #005A9C !important;
   }
 
-  .coupon-note {
-    font-size: 11px;
+  .coupon-note-bottom {
+    font-size: 10px;
     font-style: italic;
     color: #64748b !important;
-    margin-bottom: auto;
-    text-align: center;
+    margin-top: auto;
+    text-align: left;
+    z-index: 2;
   }
 
   .coupon-footer-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-end;
-    margin-top: 10px;
+    margin-top: 20px;
+    z-index: 2;
   }
 
   .location-strip {
@@ -612,15 +663,7 @@ body {
     flex-direction: column;
     font-size: 10px;
     color: #334155 !important;
-    max-width: 45%;
-  }
-
-  .location-strip .loc-title {
-    font-weight: 700;
-    color: #059669 !important;
-    margin-bottom: 2px;
-    display: flex;
-    align-items: center;
+    max-width: 40%;
   }
 
   .panitia-strip {
@@ -629,7 +672,7 @@ body {
 
   .panitia-signatures {
     display: flex;
-    gap: 16px;
+    gap: 12px;
   }
 
   .coupon-ttd {
@@ -650,7 +693,7 @@ body {
   }
 
   .ttd-space {
-    height: 14mm;
+    height: 8mm; /* Reduced to pull signatures up */
     position: relative;
     width: 100%;
     display: flex;
@@ -671,7 +714,7 @@ body {
   }
 
   .ttd-img {
-    height: 12mm;
+    height: 10mm;
     width: auto;
     object-fit: contain;
     position: absolute;
@@ -679,8 +722,8 @@ body {
   }
   
   .stempel-img {
-    height: 20mm;
-    width: 20mm;
+    height: 16mm;
+    width: 16mm;
     object-fit: contain;
     position: absolute;
     opacity: 0.6;
